@@ -1,0 +1,1351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tanzanian Youth and Children (TYC)</title>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #032469;
+            --primary-dark: #064185;
+            --accent: #f4a261;
+            --accent-light: #fef6ee;
+            --text-dark: #2d3748;
+            --text-light: #718096;
+            --bg-light: #f8fafc;
+            --white: #ffffff;
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            color: var(--text-dark);
+            background-color: var(--white);
+            line-height: 1.7;
+        }
+
+        /* Top Bar */
+        .top-bar {
+            background-color: var(--primary-dark);
+            color: var(--white);
+            font-size: 0.85rem;
+            padding: 0.6rem 5%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-bar-contact {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .top-bar-contact a {
+            color: var(--white);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            transition: var(--transition);
+        }
+
+        .top-bar-contact a:hover {
+            color: var(--accent);
+        }
+
+        /* Header & Navigation */
+        header {
+            background: var(--white);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            background: var(--primary);
+            color: var(--white);
+            width: 45px;
+            height: 45px;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.4rem;
+            font-weight: 800;
+        }
+
+        .logo-text h1 {
+            font-size: 1.15rem;
+            font-weight: 800;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 0.75rem;
+            color: var(--text-light);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-dark);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: var(--transition);
+        }
+
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+
+        .btn-cta {
+            background: var(--accent);
+            color: var(--primary-dark);
+            padding: 0.6rem 1.4rem;
+            border-radius: 50px;
+            font-weight: 700;
+            text-decoration: none;
+            transition: var(--transition);
+            box-shadow: 0 4px 12px rgba(244, 162, 97, 0.3);
+        }
+
+        .btn-cta:hover {
+            background: #e76f51;
+            color: var(--white);
+            transform: translateY(-2px);
+        }
+
+        .hamburger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5rem;
+            color: var(--primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(135deg, rgba(27,77,62,0.92) 0%, rgba(18,53,43,0.95) 100%), url('https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=1600&auto=format&fit=crop') center/cover no-repeat;
+            color: var(--white);
+            padding: 7rem 5% 6rem;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+
+        .hero-badge {
+            display: inline-block;
+            background: rgba(244, 162, 97, 0.2);
+            color: var(--accent);
+            padding: 0.4rem 1rem;
+            border-radius: 30px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 1.5rem;
+            border: 1px solid rgba(244, 162, 97, 0.4);
+        }
+
+        .hero h1 {
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 1.8vw, 1.2rem);
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 2.5rem;
+            line-height: 1.8;
+        }
+
+        /* Section Layout Common Styles */
+        section {
+            padding: 6rem 5%;
+        }
+
+        .section-header {
+            text-align: center;
+            max-width: 700px;
+            margin: 0 auto 4rem;
+        }
+
+        .section-header span {
+            color: var(--accent);
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 1.5px;
+            display: block;
+            margin-bottom: 8px;
+        }
+
+        .section-header h2 {
+            font-size: clamp(1.8rem, 3vw, 2.5rem);
+            color: var(--primary-dark);
+            font-weight: 800;
+        }
+
+        /* About & Mission / Vision */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 50px;
+            align-items: center;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .about-text h3 {
+            font-size: 1.8rem;
+            color: var(--primary);
+            margin-bottom: 1.2rem;
+            font-weight: 700;
+        }
+
+        .about-text p {
+            color: var(--text-dark);
+            margin-bottom: 1.5rem;
+            font-size: 1.05rem;
+        }
+
+        .mv-cards {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .mv-card {
+            background: var(--bg-light);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            transition: var(--transition);
+        }
+
+        .mv-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+            border-color: var(--primary);
+        }
+
+        .mv-card h4 {
+            color: var(--primary);
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .mv-card h4 i {
+            color: var(--accent);
+        }
+
+        /* Objectives */
+        .objectives-section {
+            background-color: var(--bg-light);
+        }
+
+        .objectives-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 25px;
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        .objective-card {
+            background: var(--white);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border-top: 4px solid var(--primary);
+            transition: var(--transition);
+        }
+
+        .objective-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+        }
+
+        .obj-number {
+            font-size: 2rem;
+            font-weight: 800;
+            color: var(--accent);
+            margin-bottom: 15px;
+            opacity: 0.8;
+        }
+
+        .objective-card h3 {
+            font-size: 1.1rem;
+            color: var(--primary-dark);
+            font-weight: 700;
+            line-height: 1.5;
+        }
+
+        /* Key Activities */
+        .activities-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .activity-card {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #edf2f7;
+            display: flex;
+            flex-direction: column;
+            transition: var(--transition);
+        }
+
+        .activity-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .activity-header {
+            background: var(--primary);
+            color: var(--white);
+            padding: 25px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .activity-header i {
+            font-size: 1.8rem;
+            color: var(--accent);
+            background: rgba(255,255,255,0.1);
+            padding: 12px;
+            border-radius: 10px;
+        }
+
+        .activity-header h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+        }
+
+        .activity-body {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .activity-item {
+            display: flex;
+            gap: 12px;
+            align-items: flex-start;
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        .activity-item i {
+            color: var(--primary);
+            margin-top: 4px;
+        }
+
+        /* Board of Directors */
+        .board-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .board-card {
+            background: var(--white);
+            border-radius: 16px;
+            padding: 35px 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.04);
+            border: 1px solid #edf2f7;
+            transition: var(--transition);
+        }
+
+        .board-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+        }
+
+        .board-img-container {
+            width: 200px;
+            height: 200px;
+            border-radius: 10%;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            border: 3px solid var(--accent);
+            background: var(--bg-light);
+        }
+
+        .board-img-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .board-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .board-role {
+            color: var(--accent);
+            font-weight: 700;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .board-card p {
+            color: var(--text-light);
+            font-size: 0.95rem;
+        }
+
+        /* Beneficiaries & Core Values Split Grid */
+        .grid-split {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1.2fr;
+            gap: 50px;
+        }
+
+        .content-box {
+            background: var(--bg-light);
+            padding: 40px;
+            border-radius: 16px;
+            border: 1px solid #e2e8f0;
+        }
+
+        .content-box h3 {
+            color: var(--primary);
+            margin-bottom: 25px;
+            font-size: 1.4rem;
+        }
+
+        .content-box ul {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .content-box li {
+            display: flex;
+            gap: 12px;
+            font-size: 1rem;
+        }
+
+        .content-box li i {
+            color: var(--accent);
+            margin-top: 5px;
+        }
+
+        /* Success Stories with Read More Feature */
+        .stories-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+        }
+
+        .story-card {
+            background: var(--bg-light);
+            padding: 35px;
+            border-radius: 16px;
+            border-left: 5px solid var(--accent);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.02);
+            transition: var(--transition);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+        }
+
+        .story-card h3 {
+            color: var(--primary-dark);
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+        }
+
+        .story-card p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .more-text {
+            display: none;
+        }
+
+        .read-more-btn {
+            background: none;
+            border: none;
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 0.9rem;
+            cursor: pointer;
+            padding: 0;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 5px;
+            transition: var(--transition);
+            text-align: left;
+            width: fit-content;
+        }
+
+        .read-more-btn:hover {
+            color: var(--accent);
+        }
+
+        /* 3 Boxes Image Sliders Styles */
+        .sliders-grid {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 30px;
+        }
+
+        .slider-box {
+            background: var(--white);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border: 1px solid #e2e8f0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .slider-container {
+            position: relative;
+            width: 100%;
+            height: 260px;
+            overflow: hidden;
+            background: #000;
+        }
+
+        .slider-slides {
+            display: flex;
+            width: 300%;
+            height: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-slide {
+            width: 33.3333%;
+            height: 100%;
+            flex-shrink: 0;
+        }
+
+        .slider-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            z-index: 10;
+        }
+
+        .slider-btn:hover {
+            background: var(--primary);
+        }
+
+        .slider-prev {
+            left: 10px;
+        }
+
+        .slider-next {
+            right: 10px;
+        }
+
+        .slider-content {
+            padding: 25px;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .slider-content h3 {
+            color: var(--primary-dark);
+            font-size: 1.25rem;
+            margin-bottom: 10px;
+            font-weight: 700;
+        }
+
+        .slider-content p {
+            color: var(--text-dark);
+            font-size: 0.95rem;
+        }
+
+        /* Contact Us Section Styles */
+        .contact-section {
+            background-color: var(--bg-light);
+        }
+
+        .contact-container {
+            max-width: 1300px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 50px;
+        }
+
+        .contact-info-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-info-box h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .contact-info-box p {
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+
+        .contact-detail-item {
+            margin-bottom: 15px;
+            font-size: 1rem;
+        }
+
+        .contact-detail-item strong {
+            color: var(--primary);
+        }
+
+        .contact-form-box {
+            background: var(--white);
+            padding: 40px;
+            border-radius: 16px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+            border: 1px solid #e2e8f0;
+        }
+
+        .contact-form-box h3 {
+            color: var(--primary-dark);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 12px 15px;
+            border: 1px solid #cbd5e1;
+            border-radius: 8px;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-size: 1rem;
+            outline: none;
+            transition: var(--transition);
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus {
+            border-color: var(--primary);
+        }
+
+        .form-submit-btn {
+            background: var(--primary);
+            color: var(--white);
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 700;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: var(--transition);
+        }
+
+        .form-submit-btn:hover {
+            background: var(--primary-dark);
+        }
+
+        /* Footer */
+        footer {
+            background: var(--primary-dark);
+            color: var(--white);
+            padding: 4rem 5% 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: rgba(255,255,255,0.7);
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        /* Responsive Design Media Queries */
+        @media (max-width: 992px) {
+            .about-grid, .grid-split, .contact-container {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            .nav-links {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 100%;
+                left: 0;
+                width: 100%;
+                background: var(--white);
+                padding: 20px;
+                box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+                gap: 15px;
+                text-align: center;
+            }
+            .nav-links.active {
+                display: flex;
+            }
+            .hamburger {
+                display: block;
+            }
+        }
+
+        @media (max-width: 768px) {
+            section {
+                padding: 4rem 5%;
+            }
+            .activities-container, .stories-grid, .board-grid, .objectives-grid, .sliders-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-contact">
+            <a href="tel:0756548613"><i class="fas fa-phone-alt"></i> 0756-548 613 / 0684-987 213</a>
+            <a href="mailto:tynew@gmail.com"><i class="fas fa-envelope"></i> tynew@gmail.com</a>
+        </div>
+        <div>
+            <span><i class="fas fa-map-marker-alt"></i> Shinyanga District Council, Tanesco Street</span>
+        </div>
+    </div>
+
+    <!-- Header & Navigation -->
+    <header>
+        <nav class="navbar">
+            <a href="#home" class="logo-container">
+                <img width="50px"src="pictures/logo.jpg" alt="Subiraga Mwanjabe">
+                   
+                <div class="logo-text">
+                   <span>Youth & Children</span>
+                </div>
+            </a>
+            <div class="hamburger" id="hamburger">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#objectives">Objectives</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#board">Board</a></li>
+                <li><a href="#stories">Success Stories</a></li>
+                <li><a href="#gallery">Gallery</a></li>
+                <li><a href="#contact" class="btn-cta">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <span class="hero-badge">Reg No: 00NGO/R/3052</span>
+            <h1>Tanzanian Youth and Children (TYC)</h1>
+            <p>Empowering every child and youth with quality education, creativity, and skills to thrive and contribute to national development.</p>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <div class="section-header">
+            <span>Who We Are</span>
+            <h2>Organization Background</h2>
+        </div>
+        <div class="about-grid">
+            <div class="about-text">
+                <h3>Building a Brighter Future for Tanzanian Youth</h3>
+                <p>Tanzanian Youth and Children (TYC) is a membership non-profit making development-oriented local organization, initially established in 2017 as a Community Based Organization (CBO) and finally registered as an NGO in 2022 with registration number <strong>00NGO/R/3052</strong>.</p>
+                <p>TYC is established by a group of concerned voluntary Tanzanians who envisioned seeing children and youth access better, quality education and enrich their full potentials.</p>
+                <div style="background: var(--accent-light); padding: 15px 20px; border-left: 4px solid var(--accent); border-radius: 0 8px 8px 0; margin-top: 20px;">
+                    <strong>Main Goal:</strong> To improve access to inclusive, quality, and skill-focused education for Tanzanian youth and children in underserved communities.
+                </div>
+            </div>
+            <div class="mv-cards">
+                <div class="mv-card">
+                    <h4><i class="fas fa-eye"></i> Vision</h4>
+                    <p>A Tanzania where every child and youth is empowered with quality education, creativity, and skills to thrive and contribute to national development.</p>
+                </div>
+                <div class="mv-card">
+                    <h4><i class="fas fa-bullseye"></i> Mission</h4>
+                    <p>To work with communities, educators, and stakeholders to provide inclusive, child-centered, and skill-based education that prepares Tanzania's young people for future opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Objectives Section -->
+    <section id="objectives" class="objectives-section">
+        <div class="section-header">
+            <span>What Drives Us</span>
+            <h2>Specific Objectives</h2>
+        </div>
+        <div class="objectives-grid">
+            <div class="objective-card">
+                <div class="obj-number">01</div>
+                <h3>Strengthen community engagement to support children's education.</h3>
+            </div>
+            <div class="objective-card">
+                <div class="obj-number">02</div>
+                <h3>Enhance school infrastructure and access to learning resources.</h3>
+            </div>
+            <div class="objective-card">
+                <div class="obj-number">03</div>
+                <h3>Build teacher capacity in modern and digital teaching methodologies.</h3>
+            </div>
+            <div class="objective-card">
+                <div class="obj-number">04</div>
+                <h3>Establish digital learning hubs to promote youth ICT skills.</h3>
+            </div>
+            <div class="objective-card">
+                <div class="obj-number">05</div>
+                <h3>Deliver life-skills and leadership training programs for youth.</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Key Activities -->
+    <section id="activities">
+        <div class="section-header">
+            <span>Our Interventions</span>
+            <h2>Key Organization Activities</h2>
+        </div>
+        <div class="activities-container">
+            <div class="activity-card">
+                <div class="activity-header">
+                    <i class="fas fa-school"></i>
+                    <h3>Component A: Learning Environments</h3>
+                </div>
+                <div class="activity-body">
+                    <div class="activity-item"><i class="fas fa-check"></i> Supply textbooks, STEM kits, and educational materials.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Construct and renovate classrooms, libraries, and sanitation facilities.</div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-header">
+                    <i class="fas fa-chalkboard-teacher"></i>
+                    <h3>Component B: Teacher Development</h3>
+                </div>
+                <div class="activity-body">
+                    <div class="activity-item"><i class="fas fa-check"></i> Train teachers in learner-centered and inclusive pedagogy.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Provide ICT and digital teaching tool workshops.</div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-header">
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Component C: Digital Literacy & Tech</h3>
+                </div>
+                <div class="activity-body">
+                    <div class="activity-item"><i class="fas fa-check"></i> Set up ICT labs with computers and internet access.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Offer digital skills training: coding, digital marketing, robotics.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Run holiday tech camps for youth.</div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-header">
+                    <i class="fas fa-users-cog"></i>
+                    <h3>Component D: Youth Empowerment</h3>
+                </div>
+                <div class="activity-body">
+                    <div class="activity-item"><i class="fas fa-check"></i> Mentor programs linking students with professionals.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Leadership, communication, and financial literacy training.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Career guidance and entrepreneurship workshops.</div>
+                </div>
+            </div>
+
+            <div class="activity-card">
+                <div class="activity-header">
+                    <i class="fas fa-hands-helping"></i>
+                    <h3>Component E: Community Engagement</h3>
+                </div>
+                <div class="activity-body">
+                    <div class="activity-item"><i class="fas fa-check"></i> Awareness campaigns on the importance of education.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Training for parents and community leaders on child protection.</div>
+                    <div class="activity-item"><i class="fas fa-check"></i> Establish or strengthen community education committees.</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Board of Directors Section -->
+    <section id="board" style="background-color: var(--bg-light);">
+        <div class="section-header">
+            <span>Leadership & Governance</span>
+            <h2>Board of Directors</h2>
+        </div>
+        <div class="board-grid">
+            <div class="board-card">
+                <div class="board-img-container">
+                    <img src="pictures/co.jpg" alt="Lucas Daudi">
+                </div>
+                <h3>Lucas Daudi</h3>
+                <span class="board-role">Co- Founder and Executive Director Tanzanian Youth and Children TYC</span>
+                <!-- <p>Providing strategic direction and governance oversight to ensure alignment with TYC's mission and vision.</p> -->
+            </div>
+            <div class="board-card">
+                <div class="board-img-container">
+                    <img src="pictures/micle.jpg" alt="Micle Leo">
+                </div>
+                <h3>Micle Leo</h3>
+                <span class="board-role">Resource Mobilization Officer</span>
+                <!-- <p>Managing administrative governance, records, and coordination between stakeholders and the organization.</p> -->
+            </div>
+            <div class="board-card">
+                <div class="board-img-container">
+                    <img src="pictures/mary.jpg" alt="Mary Matondo">
+                </div>
+                <h3>Mary Matondo</h3>
+                <span class="board-role">Project officer</span>
+                <!-- <p>Ensuring financial accountability, prudent resource stewardship, and transparent budget execution.</p> -->
+            </div>
+            <div class="board-card">
+                <div class="board-img-container">
+                    <img src="pictures/subiraga.jpg" alt="Subiraga Mwanjabe">
+                </div>
+                <h3>Subiraga Mwanjabe</h3>
+                <span class="board-role">Zonal Coordinator</span>
+                <!-- <p>Representing community interests and advising on youth education, community engagement, and strategic growth.</p> -->
+            </div>
+            <div class="board-card">
+                <div class="board-img-container">
+                    <img src="pictures/merciana.jpg" alt="Merciana William">
+                </div>
+                <h3>Merciana William</h3>
+                <span class="board-role">Field officer</span>
+                <!-- <p>Representing community interests and advising on youth education, community engagement, and strategic growth.</p> -->
+            </div>    
+             <div class="board-card">
+                <div class="board-img-container">
+                    <img src="pictures/shaban.jpg" alt="Merciana William">
+                </div>
+                <h3>Shaban Maramadhani</h3>
+                <span class="board-role">M & E Manager</span>
+                <!-- <p>Representing community interests and advising on youth education, community engagement, and strategic growth.</p> -->
+            </div>    
+        </div>
+    </section>
+
+    <!-- Beneficiaries & Core Values -->
+    <section>
+        <div class="grid-split">
+            <div class="content-box">
+                <h3>Target Beneficiaries</h3>
+                <ul>
+                    <li><i class="fas fa-angle-right"></i> Primary and secondary school children</li>
+                    <li><i class="fas fa-angle-right"></i> Youth aged 10–24</li>
+                    <li><i class="fas fa-angle-right"></i> Teachers and school administrators</li>
+                    <li><i class="fas fa-angle-right"></i> Parents and community leaders</li>
+                    <li><i class="fas fa-angle-right"></i> Out-of-school and marginalized youth</li>
+                </ul>
+            </div>
+            <div class="content-box">
+                <h3>Core Values</h3>
+                <ul>
+                    <li><i class="fas fa-check-circle"></i> <strong>Integrity:</strong> Honesty and ethical conduct in all endeavors.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Accountability:</strong> Responsible stewardship of resources.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Excellence:</strong> Continually seeking improvement and innovation.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Collaboration:</strong> Fostering dialogue among diverse stakeholders.</li>
+                    <li><i class="fas fa-check-circle"></i> <strong>Inclusivity:</strong> Promoting diversity, equity, and inclusion.</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Success Stories (With Read More Toggle Feature) -->
+    <section id="stories" class="objectives-section">
+        <div class="section-header">
+            <span>Impact & Results</span>
+            <h2>Our Success Stories</h2>
+        </div>
+        <div class="stories-grid">
+            <div class="story-card">
+                <div>
+                    <h3>Empowering a Village With Its First Learning Center </h3>
+                    <p>In the remote village of Samuye village in Shinyanga District, children once walked over 10 kilometers to the nearest school, leading many to drop
+                        <span class="short-dots">...</span><span class="more-text"> out early. With TYC’s support, the community built its first inclusive learning center equipped with creative 
+                            learning materials and skill-based activities. Attendance rose by 80%, and families reported renewed hope for their children’s future. 
+                            This milestone brought the village closer to TYC’s vision of ensuring that every child is empowered with quality education regardless of location</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <h3>A Girl’s Journey From Early Marriage Risk to Tech Champion:</h3>
+                    <p>At just 14, Rehema Mapolu 	in Shinyanga District was under pressure to leave school for early marriage, but TYC’s mentorship and girls’ empowerment program helped her family understand the value of
+                        <span class="short-dots">...</span><span class="more-text"> education. She joined digital literacy classes, later creating a simple mobile app for tracking 
+                            village water points. Her story demonstrates how inclusive, child-centered educational support can transform not only a girl’s life, but an entire community’s 
+                            perspective on the future.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <h3>Turning Struggling Students Around</h3>
+                    <p>Introduced child-centered teaching methods in lake zone communities, raising national pass rates <span class="short-dots">...</span><span class="more-text"> from 42% to 76% within a single academic year, proving that proper teacher training and adequate learning tools dramatically change student performance.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <h3>Turning Struggling Students Into Confident Learners</h3>
+                    <p>In an underserved lake zone community, many students were performing far below national standards due to overcrowded classrooms and limited learning
+                         <span class="short-dots">...</span><span class="more-text"> resources. TYC introduced child-centered teaching methods and after-school tutoring sessions in collaboration with local educators. Within a year, pass rates increased from 42% to 76%, and students developed new confidence in their abilities. Their success reflects TYC’s mission 
+                            to ensure skill-focused learning that prepares youth for future opportunities.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <h3>Vocational Skills That Brought Hope to Unemployed Youth</h3>
+                    <p>A group of out-of-school youth in in Tabora at Nzega Town Council had lost hope after failing to secure formal employment. In 2024 TYC supported 16 youths, through
+                         <span class="short-dots">...</span><span class="more-text">
+                            through carpentry and electricity trainings, By the end of the program, 17 participants had started micro-businesses, collectively generating income to support their families. 
+                            Their transformation exemplifies the power of skill-based education in shaping self-reliant, future-ready Tanzanian youth</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+
+            <div class="story-card">
+                <div>
+                    <h3>A Teacher Who Rediscovered the Joy of Teaching</h3>
+                    <p>Fatuma Ally, a primary school teacher, felt overwhelmed by outdated teaching methods and low student engagement. Through TYC’s educator-training workshops, 
+                         <span class="short-dots">...</span><span class="more-text"> she learned inclusive techniques, creative classroom practices, and positive discipline strategies. Her classroom became one of the school’s most active and inspiring, with students participating enthusiastically in lessons. 
+                            Her renewed passion reflects TYC’s commitment to working with educators to deliver quality, child-centered education.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+       
+
+      <div class="story-card">
+                <div>
+                    <h3>Solar-Powered Learning for a Community Without Electricity</h3>
+                    <p>In a rural village lacking electricity, learning often stopped when the sun went down, limiting study time and access to digital resources. TYC installed 
+                         <span class="short-dots">...</span><span class="more-text">solar-powered learning stations and introduced digital education tools that students and teachers could use at any time. Within months, learners improved in reading and problem-solving skills, and teachers integrated technology into daily 
+                            lessons. This initiative brought underserved children closer to the vision of a technologically empowered generation.    </span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+        
+   <div class="story-card">
+                <div>
+                    <h3>Reviving a Failing School Through Community Involvement</h3>
+                    <p>Supporting scholastic materials to students in 2022, 2023, 2024 and 2025 to 16 primary schools and 8 secondary schools to the vulnerable from
+                         <span class="short-dots">...</span><span class="more-text">the poor families. Enrollment increased by 60%, and the school regained its reputation as a safe, supportive learning environment. The success demonstrated how community-driven efforts can uplift education and align
+                             with TYC’s mission of collaborative impact.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+        
+<div class="story-card">
+                <div>
+                    <h3>An Orphan’s Path From Silence to Self-Expression</h3>
+                    <p>After losing both parents, little Musa Shija at Ukenyenge Primary school at Kishapu Dstirict Council became withdrawn and struggled to 
+                         <span class="short-dots">...</span><span class="more-text">participate in class. TYC’s child-centered psychosocial support program created a safe space for him to express himself through art and storytelling. Over time, Musa regained confidence and even won a regional creative writing competition. His journey 
+                            highlights the importance of inclusive education that nurtures children emotionally as well as academically.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+        
+<div class="story-card">
+                <div>
+                    <h3>Bridging the Language Gap for Early Learners</h3>
+                    <p>Many early-grade learners struggled because lessons were taught in a language they barely understood. TYC collaborated with 
+                         <span class="short-dots">...</span><span class="more-text">educators to create bilingual learning materials and train teachers in child-friendly literacy methods. Young learners quickly improved in reading comprehension and classroom participation. By making education more accessible and engaging, this initiative 
+                            supported TYC’s mission to provide inclusive, quality education for all Tanzanian children.</span></p>
+                </div>
+                <button class="read-more-btn" onclick="toggleReadMore(this)">Read More <i class="fas fa-chevron-down"></i></button>
+            </div>
+        
+
+    </section>
+
+    <!-- Gallery Section (3 Image Slider Boxes) -->
+    <section id="gallery" style="background-color: var(--white);">
+        <div class="section-header">
+            <span>Our Gallery</span>
+            <h2>Event & Activity Sliders</h2>
+        </div>
+        <div class="sliders-grid">
+            
+            <!-- Box 1 Slider -->
+            <div class="slider-box">
+                <div class="slider-container" id="slider1">
+                    <button class="slider-btn slider-prev" onclick="moveSlide(1, -1)"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-slides">
+                        <div class="slider-slide"><img src="pictures/c.jpg"></div>
+                        <div class="slider-slide"><img src="pictures/e.jpg" alt="Event 1-2"></div>
+                        <div class="slider-slide"><img src="pictures/f.jpg" alt="Event 1-3"></div>
+                    </div>
+                    <button class="slider-btn slider-next" onclick="moveSlide(1, 1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-content">
+                    <h3>Community Education & Learning</h3>
+                    <p>Workshops and classroom activities designed to foster creative and inclusive education for children.</p>
+                </div>
+            </div>
+
+            <!-- Box 2 Slider -->
+            <div class="slider-box">
+                <div class="slider-container" id="slider2">
+                    <button class="slider-btn slider-prev" onclick="moveSlide(2, -1)"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-slides">
+                        <div class="slider-slide"><img src="pictures/f.jpg" alt="Event 2-1"></div>
+                        <div class="slider-slide"><img src="pictures/g.jpg" alt="Event 2-2"></div>
+                        <div class="slider-slide"><img src="pictures/h.jpg" alt="Event 2-3"></div>
+                    </div>
+                    <button class="slider-btn slider-next" onclick="moveSlide(2, 1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-content">
+                    <h3>Digital Literacy & ICT Camps</h3>
+                    <p>Equipping youth with vital computer skills, coding, and modern technological know-how.</p>
+                </div>
+            </div>
+
+            <!-- Box 3 Slider -->
+            <div class="slider-box">
+                <div class="slider-container" id="slider3">
+                    <button class="slider-btn slider-prev" onclick="moveSlide(3, -1)"><i class="fas fa-chevron-left"></i></button>
+                    <div class="slider-slides">
+                        <div class="slider-slide"><img src="pictures/i.jpg" alt="Event 3-1"></div>
+                        <div class="slider-slide"><img src="pictures/s.jpg" alt="Event 3-2"></div>
+                        <div class="slider-slide"><img src="pictures/r.jpg" alt="Event 3-3"></div>
+                    </div>
+                    <button class="slider-btn slider-next" onclick="moveSlide(3, 1)"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="slider-content">
+                    <h3>Youth Empowerment & Leadership</h3>
+                    <p>Mentorship sessions, career workshops, and community involvement programs for young people.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Contact Us Section -->
+    <section id="contact-section" class="contact-section">
+        <div class="section-header">
+            <span>Get in Touch</span>
+            <h2>Contact Us</h2>
+        </div>
+        <div class="contact-container">
+            <div class="contact-info-box">
+                <h3>Reach Out To Us</h3>
+                <p>We would love to hear from you. Get in touch with us through our office details or send us a message.</p>
+                <div class="contact-detail-item">
+                    <strong>Head Office:</strong> Shinyanga District Council, Tanesco Street
+                </div>
+                <div class="contact-detail-item">
+                    <strong>Postal Address:</strong> P.O. Box 1362, Shinyanga, Tanzania
+                </div>
+                <div class="contact-detail-item">
+                    <strong>Phone:</strong> 0756-548 613 / 0684-987 213
+                </div>
+                <div class="contact-detail-item">
+                    <strong>Email:</strong> tynew@gmail.com
+                </div>
+            </div>
+            <div class="contact-form-box">
+                <h3>Send Us a Message</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="name">Your Name</label>
+                        <input type="text" id="name" placeholder="Enter your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Your Email</label>
+                        <input type="email" id="email" placeholder="Enter your email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Your Message</label>
+                        <textarea id="message" rows="4" placeholder="Write your message here..." required></textarea>
+                    </div>
+                    <button type="submit" class="form-submit-btn">Send Message</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <p>Head Office: Shinyanga District Council, Tanesco Street | P.O. Box 1362, Shinyanga, Tanzania</p>
+        <p style="margin-top: 10px;">Mobile: 0756-548 613 / 0684-987 213 | Email: tynew@gmail.com | Website: www.tyc.or.tz</p>
+        <p style="margin-top: 15px; color: var(--accent);">&copy; 2026 Tanzanian Youth and Children (TYC). All Rights Reserved.</p>
+    </footer>
+
+    <!-- JavaScript for Mobile Menu, Image Sliders, and Read More Toggle -->
+    <script>
+        const hamburger = document.getElementById('hamburger');
+        const navLinks = document.getElementById('navLinks');
+
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+            });
+        });
+
+        // Read More Toggle Function for Success Stories
+        function toggleReadMore(button) {
+            const card = button.parentElement;
+            const moreText = card.querySelector('.more-text');
+            const dots = card.querySelector('.short-dots');
+            
+            if (moreText.style.display === 'inline') {
+                moreText.style.display = 'none';
+                dots.style.display = 'inline';
+                button.innerHTML = 'Read More <i class="fas fa-chevron-down"></i>';
+            } else {
+                moreText.style.display = 'inline';
+                dots.style.display = 'none';
+                button.innerHTML = 'Read Less <i class="fas fa-chevron-up"></i>';
+            }
+        }
+
+        // Image Slider Functionality for 3 Boxes
+        const currentIndices = { 1: 0, 2: 0, 3: 0 };
+        const totalSlides = 3;
+
+        function moveSlide(sliderId, direction) {
+            currentIndices[sliderId] += direction;
+            if (currentIndices[sliderId] >= totalSlides) {
+                currentIndices[sliderId] = 0;
+            } else if (currentIndices[sliderId] < 0) {
+                currentIndices[sliderId] = totalSlides - 1;
+            }
+            
+            const sliderContainer = document.getElementById('slider' + sliderId);
+            const slidesElement = sliderContainer.querySelector('.slider-slides');
+            slidesElement.style.transform = `translateX(-${currentIndices[sliderId] * (100 / totalSlides)}%)`;
+        }
+
+        // Optional: Auto slide every 4 seconds
+        setInterval(() => {
+            for (let i = 1; i <= 3; i++) {
+                moveSlide(i, 1);
+            }
+        }, 4000);
+    </script>
+</body>
+</html>
